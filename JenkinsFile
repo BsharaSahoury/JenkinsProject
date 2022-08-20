@@ -9,7 +9,6 @@ pipeline {
 	  	env
 		echo "Version of the code is $Language"
 		mkdir -p $HOME/Versions/$Language
-		
 		cp -r ${WORKSPACE}/* $HOME/Versions/$Language
 		cd $HOME/Versions/$Language
 		pwd
@@ -19,8 +18,10 @@ pipeline {
       }
       stage('C') {
       when {
-      // Only say hello if a "greeting" is requested
-      expression { params.Language == 'All' }
+      anyOf {
+                    params.Language "All"
+                    params.Language "C"
+                }
         }
          steps {
             echo 'The Build is started'
