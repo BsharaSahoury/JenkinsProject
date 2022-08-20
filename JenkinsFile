@@ -10,25 +10,5 @@ pipeline {
 	    		ls -la ~ 
 	    	''' 
 	    } 
-}  
-      
-	  stage('Test') {
-         steps {
-            echo 'The Test is startedd'
-         }
-      }
-	  stage('Deploy') {
-         steps {
-            echo 'The Deploy is started'
-         }
-      }
-      stage('Timeout') { 
-	      steps { 
-	      	  retry(3) { 
-	      	  	  sh 'echo "I am not going to work :c"' 
-	      	  }
-	      }
-      }
-      
-   }
+	}  
 }
