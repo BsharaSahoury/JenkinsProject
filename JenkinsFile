@@ -1,10 +1,25 @@
-#!/bin/bash
+pipeline {
+   agent { node { label 'slave01' } }
 
-env
-echo "Version of the code is $VERSION"
-mkdir -p $HOME/Versions/$VERSION
-
-cp -r ${WORKSPACE}/* $HOME/Versions/$VERSION
-cd $HOME/Versions/$VERSION
-pwd
-ls -la
+   stages {
+   when {
+      // Only say hello if a "greeting" is requested
+      expression { params.Language == 'All' }
+        }
+      stage('C') {
+         steps {
+            echo 'The Build is started'
+         }
+      }
+	  stage('Python') {
+         steps {
+            echo 'The Test is started'
+         }
+      }
+	  stage('Bash') {
+         steps {
+            echo 'The Deploy is started'
+         }
+      }
+   }
+}
