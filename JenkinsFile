@@ -6,38 +6,70 @@ pipeline {
   	 stage('Initialize') {
          steps {
             sh """
-	  	env
-		echo "Version of the code is $Language"
-		mkdir -p $HOME/Versions/$Language
-	    """
+					env
+					echo "Version of the code is $Language"
+					mkdir -p $HOME/Versions/$Language
+			"""
          }
       }
+	  
       stage('C') {
-      when {
-      anyOf {
-      		    expression { params.Language == 'All' }
-		    expression { params.Language == 'C' }
-                }
-        }
+			when {
+					anyOf {
+							expression { params.Language == 'All' }
+							expression { params.Language == 'C' }
+					   	  }
+				  }
          steps {
-		sh """
-		cp -r ${WORKSPACE}/*.c $HOME/Versions/$Language
-		cd $HOME/Versions/$Language
-		pwd
-		ls -la
-		"""
+				sh """
+						cp -r ${WORKSPACE}/*.c $HOME/Versions/$Language
+						cd $HOME/Versions/$Language
+						pwd
+						ls -la
+						gcc C.c -o Program
+						./Program
+				   """
             echo 'Here is C space.'
-         }
+                }
       }
+	  
 	  stage('Python') {
+         when {
+					anyOf {
+							expression { params.Language == 'All' }
+							expression { params.Language == 'Python' }
+					   	  }
+				  }
          steps {
-            echo 'The Test is started'
-         }
+				sh """
+						cp -r ${WORKSPACE}/*.p $HOME/Versions/$Language
+						cd $HOME/Versions/$Language
+						pwd
+						ls -la
+						py *.py
+				   """
+            echo 'Here is Python space.'
+                }
       }
+	  
+	  
 	  stage('Bash') {
+         when {
+					anyOf {
+							expression { params.Language == 'All' }
+							expression { params.Language == 'Python' }
+					   	  }
+				  }
          steps {
-            echo 'The Deploy is started'
-         }
+				sh """
+						cp -r ${WORKSPACE}/*.p $HOME/Versions/$Language
+						cd $HOME/Versions/$Language
+						pwd
+						ls -la
+						sh *.sh
+				   """
+            echo 'Here is Bash space.'
+                }
       }
    }
 }
