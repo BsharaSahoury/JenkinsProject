@@ -2,20 +2,10 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
-      stage('C') {
-         steps {
-            echo 'The Build is started'
-         }
-      }
-	  stage('Python') {
-         steps {
-            echo 'The Test is started'
-         }
-      }
-	  stage('Bash') {
-         steps {
-            echo 'The Deploy is started'
-         }
+      stage('Clone Sources') {
+        steps {
+          checkout scm
+        } 
       }
    }
 }
