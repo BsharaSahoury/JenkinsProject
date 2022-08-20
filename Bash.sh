@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "Hello World, I'am from Bash file"
+echo "Hello World, I'am from Bash file\n"
