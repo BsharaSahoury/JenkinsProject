@@ -62,7 +62,7 @@ pipeline {
 				  }
          steps {
 				sh """
-						cp -r ${WORKSPACE}/*.p $HOME/Versions/$Language
+						cp -r ${WORKSPACE}/*.sh $HOME/Versions/$Language
 						cd $HOME/Versions/$Language
 						pwd
 						ls -la
