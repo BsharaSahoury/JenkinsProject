@@ -24,7 +24,13 @@ pipeline {
                 }
         }
          steps {
-            echo 'The Build is started'
+		sh """
+		cp -r ${WORKSPACE}/*.c $HOME/Versions/$Language
+		cd $HOME/Versions/$Language
+		pwd
+		ls -la
+		"""
+            echo 'Here is C space.'
          }
       }
 	  stage('Python') {
