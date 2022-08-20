@@ -1,11 +1,10 @@
-pipeline {
-   agent { node { label 'slave01' } }
+#!/bin/bash
 
-   stages {
-      stage('Clone Sources') {
-        steps {
-          checkout scm
-        } 
-      }
-   }
-}
+env
+echo "Version of the code is $VERSION"
+mkdir -p $HOME/Versions/$VERSION
+
+cp -r ${WORKSPACE}/* $HOME/Versions/$VERSION
+cd $HOME/Versions/$VERSION
+pwd
+ls -la
