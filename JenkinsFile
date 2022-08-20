@@ -57,7 +57,7 @@ pipeline {
          when {
 					anyOf {
 							expression { params.Language == 'All' }
-							expression { params.Language == 'Python' }
+							expression { params.Language == 'Bash' }
 					   	  }
 				  }
          steps {
