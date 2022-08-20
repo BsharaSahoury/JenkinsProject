@@ -19,8 +19,8 @@ pipeline {
       stage('C') {
       when {
       anyOf {
-                    params.Language "All"
-                    params.Language "C"
+      		    expression { params.Language == 'All' }
+		    expression { params.Language == 'C' }
                 }
         }
          steps {
