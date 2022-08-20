@@ -9,10 +9,6 @@ pipeline {
 	  	env
 		echo "Version of the code is $Language"
 		mkdir -p $HOME/Versions/$Language
-		cp -r ${WORKSPACE}/* $HOME/Versions/$Language
-		cd $HOME/Versions/$Language
-		pwd
-		ls -la
 	    """
          }
       }
