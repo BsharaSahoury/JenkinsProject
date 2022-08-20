@@ -46,7 +46,7 @@ pipeline {
 						cd $HOME/Versions/$Language
 						pwd
 						ls -la
-						py *.py
+						python *.py
 				   """
             echo 'Here is Python space.'
                 }
