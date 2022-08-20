@@ -29,15 +29,6 @@ pipeline {
 	      	  }
 	      }
       }
-      stage('Timeout3') {
-	      steps {
-	      	  retry(3) { 
-	      	  	  sh 'echo hello'
-	      	  }
-	      	  timeout(time: 3, unit: 'SECONDS') { 
-	      	  	  sh 'sleep 5' 
-	      	  } 
-	      }
-      }
+      
    }
 }
