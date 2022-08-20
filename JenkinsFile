@@ -2,17 +2,17 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
-      stage('Build') {
+      stage('C') {
          steps {
             echo 'The Build is started'
          }
       }
-	  stage('Test') {
+	  stage('Python') {
          steps {
             echo 'The Test is started'
          }
       }
-	  stage('Deploy') {
+	  stage('Bash') {
          steps {
             echo 'The Deploy is started'
          }
