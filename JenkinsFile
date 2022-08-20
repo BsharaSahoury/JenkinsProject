@@ -7,11 +7,11 @@ pipeline {
          steps {
             sh """
 	  	env
-		echo "Version of the code is $VERSION"
-		mkdir -p $HOME/Versions/$VERSION
+		echo "Version of the code is $Language"
+		mkdir -p $HOME/Versions/$Language
 		
-		cp -r ${WORKSPACE}/* $HOME/Versions/$VERSION
-		cd $HOME/Versions/$VERSION
+		cp -r ${WORKSPACE}/* $HOME/Versions/$Language
+		cd $HOME/Versions/$Language
 		pwd
 		ls -la
 	    """
