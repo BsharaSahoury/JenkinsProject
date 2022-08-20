@@ -2,7 +2,10 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
- 
+   when {
+      // Only say hello if a "greeting" is requested
+      expression { params.Language == 'All' }
+        }
       stage('C') {
          steps {
             echo 'The Build is started'
