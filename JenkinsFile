@@ -80,6 +80,9 @@ pipeline {
             echo 'Saving Results process..'
             sh '''
 	      report_file="${HOME}/Documents/Deployment/report"
+	      working_dir="$HOME/Versions/$Language"
+	      cd ${working_dir}
+	      cd $HOME/Versions/$Language
               mkdir -p ${HOME}/Documents/Deployment/              
               if [ -f "${report_file}" ]; then
                 echo "file ${report_file} exists"
