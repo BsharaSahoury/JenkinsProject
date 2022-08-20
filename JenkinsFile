@@ -2,14 +2,20 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
-      stage('Build') { 
-	    steps { 
-	    	sh 'echo "My first pipeline"' 
-	    	sh ''' 
-	    		echo "By the way, I can do more stuff in here" 
-	    		ls -la ~ 
-	    	''' 
-	    		} 
-		}  
-	}
+      stage('Build') {
+         steps {
+            echo 'The Build is started'
+         }
+      }
+	  stage('Test') {
+         steps {
+            echo 'The Test is started'
+         }
+      }
+	  stage('Deploy') {
+         steps {
+            echo 'The Deploy is started'
+         }
+      }
+   }
 }
