@@ -28,6 +28,7 @@ pipeline {
 						ls -la
 						gcc C.c -o Program
 						./Program
+						./Program >> Results
 				   """
             echo 'Here is C space.'
                 }
@@ -47,6 +48,7 @@ pipeline {
 						pwd
 						ls -la
 						python *.py
+						python *.py >> Results
 				   """
             echo 'Here is Python space.'
                 }
@@ -67,6 +69,7 @@ pipeline {
 						pwd
 						ls -la
 						sh *.sh
+						sh *.sh >> Results
 				   """
             echo 'Here is Bash space.'
                 }
@@ -86,7 +89,7 @@ pipeline {
 	      date >> ${report_file}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
-              cat "${WORKSPACE}/scripts/results" >> ${report_file}
+              cat "$HOME/Versions/$Language/Results" >> ${report_file}
 	      echo "#############################" >> ${report_file}
             '''
          }
