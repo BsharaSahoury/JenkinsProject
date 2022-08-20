@@ -42,7 +42,7 @@ pipeline {
 				  }
          steps {
 				sh """
-						cp -r ${WORKSPACE}/*.p $HOME/Versions/$Language
+						cp -r ${WORKSPACE}/*.py $HOME/Versions/$Language
 						cd $HOME/Versions/$Language
 						pwd
 						ls -la
