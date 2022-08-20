@@ -2,6 +2,21 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
+   
+  	 stage('Initialize') {
+         steps {
+            sh """
+	  	env
+		echo "Version of the code is $VERSION"
+		mkdir -p $HOME/Versions/$VERSION
+		
+		cp -r ${WORKSPACE}/* $HOME/Versions/$VERSION
+		cd $HOME/Versions/$VERSION
+		pwd
+		ls -la
+	    """
+         }
+      }
       stage('C') {
       when {
       // Only say hello if a "greeting" is requested
