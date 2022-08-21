@@ -89,7 +89,8 @@ pipeline {
 	      date >> ${report_file}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
-              cat "$HOME/Versions/$LANGUAGE/Results" >> ${report_file}
+	      cat /dir1/file2 /dir2/file2 | unique foo ; cat foo
+              cat "$HOME/Versions/$LANGUAGE/Results"| uniq >> ${report_file}
 	      echo "#############################" >> ${report_file}
             '''
          }
