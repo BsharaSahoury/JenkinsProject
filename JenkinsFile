@@ -30,7 +30,7 @@ pipeline {
 						./Program
 						./Program >> Results
 				   """
-            echo 'Here is C space.       Stam trigger'
+            echo 'Here is C space.     Stam trigger'
                 }
       }
 	  
