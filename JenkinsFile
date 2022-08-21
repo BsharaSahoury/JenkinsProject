@@ -90,12 +90,8 @@ pipeline {
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
 	      cp -r ${WORKSPACE}/*.sh $HOME/Versions/$Language
-						cd $HOME/Versions/$Language
-						pwd
-						ls -la
-						sh *.sh
-						sh *.sh >> Results
-						report_file="${HOME}/Documents/Deployment/report"
+	      cat "$HOME/Versions/$Language/Results" >> ${report_file}
+	      echo "#############################" >> ${report_file}
 	      '''
      
          }
