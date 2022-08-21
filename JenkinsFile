@@ -80,9 +80,6 @@ pipeline {
             echo 'Saving Results process..'
             sh '''
 	      report_file="${HOME}/Documents/Deployment/report"
-	      working_dir="$HOME/Versions/$Language"
-	      cd ${working_dir}
-	      cd $HOME/Versions/$Language
               mkdir -p ${HOME}/Documents/Deployment/              
               if [ -f "${report_file}" ]; then
                 echo "file ${report_file} exists"
@@ -92,8 +89,7 @@ pipeline {
 	      date >> ${report_file}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
-	      cd $HOME/Versions/$Language
-              cat "Results" >> ${report_file}
+              cat "$HOME/Versions/{$Language}/Results" >> ${report_file}
 	      echo "#############################" >> ${report_file}
             '''
          }
