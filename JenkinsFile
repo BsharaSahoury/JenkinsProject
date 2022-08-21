@@ -98,8 +98,7 @@ pipeline {
 						sh *.sh
 						sh *.sh >> Results
 						report_file="${HOME}/Documents/Deployment/report"
-						cat "$HOME/Versions/$Language/Results" >> ${report_file}
-	                                        echo "#############################" >> ${report_file}
+						
 						
 				   """
          }
