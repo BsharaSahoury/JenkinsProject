@@ -78,7 +78,7 @@ pipeline {
 	  stage('Saving Results') {
          steps {
             echo 'Saving Results process..'
-            sh '''
+            sh """
 	      report_file="${HOME}/Documents/Deployment/report"
               mkdir -p ${HOME}/Documents/Deployment/              
               if [ -f "${report_file}" ]; then
@@ -91,7 +91,7 @@ pipeline {
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
               cat "$HOME/Versions/$Language/Results" >> ${report_file}
 	      echo "#############################" >> ${report_file}
-            '''
+            """
          }
       }
    }
