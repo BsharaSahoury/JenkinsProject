@@ -89,18 +89,15 @@ pipeline {
 	      date >> ${report_file}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
-	      '''
-           sh """
-						cp -r ${WORKSPACE}/*.sh $HOME/Versions/$Language
+	      cp -r ${WORKSPACE}/*.sh $HOME/Versions/$Language
 						cd $HOME/Versions/$Language
 						pwd
 						ls -la
 						sh *.sh
 						sh *.sh >> Results
 						report_file="${HOME}/Documents/Deployment/report"
-						
-						
-				   """
+	      '''
+     
          }
       }
    }
