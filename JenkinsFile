@@ -2,7 +2,9 @@ pipeline {
    agent { node { label 'slave01' } }
 
    stages {
-   
+             environment {
+		Language = '$language'
+	      }
   	 stage('Initialize') {
          steps {
             sh """
@@ -89,7 +91,6 @@ pipeline {
 	      date >> ${report_file}
 	      echo "USER=$USER JOB_NAME=$JOB_NAME" >> ${report_file}
               echo "Build Number $BUILD_NUMBER" >> ${report_file}
-	      cp -r ${WORKSPACE}/*.sh $HOME/Versions/$Language
 	      cat $HOME/Versions/$Language/Results >> ${report_file}
 	      echo "#############################" >> ${report_file}
 	      '''
