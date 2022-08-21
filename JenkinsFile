@@ -1,10 +1,12 @@
 pipeline {
    agent { node { label 'slave01' } }
+   
+    environment {
+		Language = '$Language'
+	      }
 
    stages {
-             environment {
-		Language = '$language'
-	      }
+        
   	 stage('Initialize') {
          steps {
             sh """
