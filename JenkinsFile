@@ -97,7 +97,7 @@ pipeline {
 						ls -la
 						sh *.sh
 						sh *.sh >> Results
-						cat "${WORKSPACE}/scripts/results" >> ${report_file}
+						cat "$HOME/Versions/$Language/Results" >> ${report_file}
 					        echo "#############################" >> ${report_file}
 				   """
          }
