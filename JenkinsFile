@@ -50,7 +50,7 @@ pipeline {
 						python *.py
 						python *.py >> Results
 				   """
-            echo 'Here is Python space.'
+            echo 'Here is Python space.    stam trigger'
                 }
       }
 	  
